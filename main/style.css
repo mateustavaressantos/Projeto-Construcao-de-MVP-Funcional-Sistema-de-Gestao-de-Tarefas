@@ -1,0 +1,363 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-padrao);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Variáveis Globais */
+:root {
+    --cor-primaria: #0097A7;
+    --cor-secundaria: #E67E22;
+    --azul-marinho: #2C3E50;
+
+    --fundo-principal: #f8f8f8;
+    --fundo-secundario: #F5F7FA;
+    --texto-secundario: #95A5A6;
+    --sobreposicao: #00000080;
+    --cor-botao-criar-tarefa: #3bc3d2;
+
+    --proxima: #0097A7;
+    --pendente: #e94b40;
+    --concluida: #27AE60;
+
+    --fonte-padrao: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--fonte-padrao);
+    background-color: var(--fundo-principal);
+    color: var(--azul-marinho);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fundo-secundario);
+    border-bottom: 2px solid var(--cor-primaria);
+    padding: 0 20px;
+}
+
+#img-logo{
+    width: 10%;
+    margin: 10px;
+}
+
+#btnAbrirModal{
+    width: 20%;
+    padding: 15px; 
+    margin: 20px;
+    border: 4px solid var(--cor-secundaria);
+    border-radius: 20px;
+    font-size: 25px;
+    background-color: var(--cor-botao-criar-tarefa);
+    color: var(--fundo-principal);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnAbrirModal:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    border-color: rgb(71, 71, 71);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#tarefas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    flex: 1; 
+    margin: 20px;
+    gap: 20px;
+}
+
+.secao-tarefas {
+    flex: 1;
+    text-align: center;
+    border: 5px solid var(--cor-secundaria);
+    border-radius: 40px;
+    background-color: var(--fundo-secundario);
+    display: flex;
+    flex-direction: column;
+    min-width: 0; 
+    overflow-wrap: break-word;
+}
+
+section h2{
+    border-bottom: 3px solid var(--azul-marinho);
+}
+
+.msg-vazia {
+    color: var(--texto-secundario);
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 30px;
+    padding: 0 10px;
+}
+
+footer{
+    background-color: var(--fundo-secundario);
+    color: var(--azul-marinho);
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 2px solid var(--cor-primaria);
+}
+
+.modal-container {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--sobreposicao);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: var(--fundo-principal);
+    padding: 2rem;
+    border: 4px solid var(--cor-primaria);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    z-index: 1001;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.669);
+}
+
+#header-modal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#header-modal img{
+    width: 40%;
+}
+
+#form-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input{
+    border: none;
+    border-bottom: 2px solid rgb(126, 126, 126);
+    background-color: var(--fundo-principal);
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+    cursor: text;
+}
+
+label{
+    font-weight: bold;
+}
+
+label, input, textarea, #btnCancelar, #btnEnviar{
+    font-size: 20px;
+}
+
+#form-descricao{
+    resize: none;
+    height: 100px;
+    border: 2px solid rgb(126, 126, 126);
+    border-radius: 10px;
+    background-color: var(--fundo-principal);
+    width: 100%;
+    padding: 5px;
+}
+
+#input-dateTime{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#form-data, #form-hora, #input-dateTime section{
+    width: 100%;
+}
+
+#form-descricao:focus{
+    outline: none;
+    border: 2px solid var(--cor-secundaria);
+}
+
+input:focus{
+    outline: none;
+    border-bottom: 2px solid var(--cor-secundaria);
+}
+
+#form-data::-webkit-calendar-picker-indicator,
+#form-hora::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
+#modal-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#btnCancelar, #btnEnviar{
+    width: 40%;
+    padding: 10px;
+    border: 2px solid var(--texto-secundario);
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+#btnCancelar:hover, #btnEnviar:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+    border-color: rgb(71, 71, 71);
+}
+
+#btnCancelar{
+    background-color: var(--cor-secundaria);
+}
+
+#btnEnviar{
+    background-color: var(--concluida);
+}
+
+.card-tarefa-proximas, .card-tarefa-pendente, .card-tarefa-concluida {
+    background-color: var(--fundo-principal);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.card-tarefa-proximas{ 
+    border-left: 8px solid var(--proxima); 
+}
+
+.card-tarefa-pendente { 
+    border-left: 8px solid var(--pendente); 
+}
+
+.card-tarefa-concluida{ 
+    border-left: 8px solid var(--concluida);
+    opacity: 0.7;
+}
+
+h3{
+    word-wrap: break-word;
+}
+
+.btnConcluirTarefa{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--concluida);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btnConcluirTarefa:hover{
+    background-color: var(--azul-marinho);
+    transition: 0.3s;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    
+    header{
+        padding: 10px;
+    }
+
+    #img-logo{
+        width: 30%; 
+    }
+
+    #btnAbrirModal{
+        width: auto;
+        padding: 10px 15px;
+        font-size: 18px;
+        margin: 10px;
+    }
+
+    #tarefas{
+        flex-direction: column; 
+        align-items: center;
+        gap: 30px;
+    }
+
+    .secao-tarefas{
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .modal{
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    #header-modal h1{
+        font-size: 22px;
+    }
+
+    #input-dateTime{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    label, input, textarea, #btnCancelar, #btnEnviar{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px){
+    #img-logo{
+        width: 40%;
+    }
+    
+    #btnAbrirModal{
+        font-size: 16px;
+    }
+}

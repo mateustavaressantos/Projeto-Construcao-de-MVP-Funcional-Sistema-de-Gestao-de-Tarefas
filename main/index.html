@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DiaEmOrdem</title>
+</head>
+<body>
+    <header>
+        <img id="img-logo" src="imgs/logo.png" alt="Logo DiaEmOrdem">
+        <button id="btnAbrirModal">Criar Nova Tarefa</button>
+    </header>
+
+    <main>
+        <section id="tarefas">
+            <section class="secao-tarefas">
+                <h2>Próximas Tarefas</h2>
+                <div id="tarefas-proximas"></div>
+            </section>
+
+            <section class="secao-tarefas">
+                <h2>Tarefas Pendentes</h2>
+                <div id="tarefas-pendentes"></div>
+            </section>
+
+            <section class="secao-tarefas">
+                <h2>Tarefas Concluídas</h2>
+                <div id="tarefas-concluidas"></div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mateus Tavares dos Santos - Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="modal-container">
+        <div class="modal">
+            <section id="header-modal">
+                <img src="imgs/logo.png" alt="Logo DiaEmOrdem">
+                <h1>Nova Tarefa</h1>
+            </section>
+            <form id="form-modal">
+
+                <section>
+                    <Label>Título:</Label>
+                    <input id="form-titulo" type="text" placeholder="Consulta Médica" maxlength="35" required>
+                </section>
+
+                <section>
+                    <Label>Descrição:</Label>
+                    <textarea id="form-descricao" placeholder="Consulta na Nutricionista" maxlength="200"></textarea>
+                </section>
+
+                <section id="input-dateTime">
+                    <section>
+                        <Label>Data:</Label>
+                        <input id="form-data" type="date" required>
+                    </section>
+
+                    <section>
+                        <Label>Hora:</Label>
+                        <input id="form-hora" type="time" required>
+                    </section>
+                </section>
+
+                <div id="modal-buttons">
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                    <button type="submit" id="btnEnviar">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
